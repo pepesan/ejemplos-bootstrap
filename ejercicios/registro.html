@@ -21,13 +21,31 @@
     <script>
         function init(){
             console.log("Dom cargado");
-            $("#login").validate({
+            $("#registro").validate({
+                rules:{
+                    pwd2:{
+                        equalTo:"#pwd"
+                    }
+                },
                 errorClass:"has-error has-feedback",
                 validClass:"has-success has-feedback"
             });
         }
         $(document).ready(init);
     </script>
+    <style>
+        input.has-error,label.has-error{
+            border: 1px red solid;
+        }
+        input.has-success,label.has-success{
+            border: 1px green solid;
+        }
+    </style>
+    <!--
+    jquery-validator.js
+    additional-methods.js
+    messages_es.js
+    -->
     <title>Lorem ipsum</title>
     <style>
         div {
@@ -111,64 +129,34 @@ Intenta transformar el código que se muestra de ejemplo en este ejercicio, para
             <!-- /Lateral -->
 
             <div class="contenido col-lg-9 col-md-9 row">
-               <!-- 2. Dentro del div de contenido introduce el típico formulario de login. Maquétalo con Bootstrap. -->
-                <div class="col-12 row">
-                    <form id="login">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email"  name="email" placeholder="Enter email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Enter password" required>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox"> Remember me</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-                <!-- Principal -->
-                <div class="col-12 row">
-                    <div class="principal col-lg-9">
-
-                        <div class="articulo">
-                            <h2>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h2>
-
-                            <img src="imagenes/imagen.png" alt="Imagen genérica" />
-
-                            <p>Nullam est lacus, suscipit ut, dapibus quis, condimentum ac, risus. Vivamus vestibulum, ipsum sollicitudin faucibus pharetra, dolor metus fringilla dui, vel aliquet pede diam tempor tortor.</p>
-                            <p>Vestibulum pulvinar urna et quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam vel turpis vitae dui imperdiet laoreet. Quisque eget ipsum.</p>
-                            <p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
-                            <p><a href="#">Seguir leyendo...</a></p>
-                        </div>
-
-                        <div class="articulo">
-                            <h2>Vivamus lobortis turpis ac ante fringilla faucibus</h2>
-
-                            <img src="imagenes/imagen.png" alt="Imagen genérica" />
-
-                            <p>Quisque eget ipsum. Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
-                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam dictum hendrerit neque. Mauris id ligula non elit mattis semper. Fusce arcu ipsum, tempus eget, tincidunt at, imperdiet in, mi.</p>
-                            <p>Sed fermentum cursus dolor. Aenean a diam. Phasellus feugiat. Donec tempor dignissim sem.</p>
-                            <p><a href="#">Seguir leyendo...</a></p>
-                        </div>
-
+             <!--3. Crea una nueva página que sea copia de la anterior y llámala registro. Quita el contenido completo central de la página y pon el típico formulario de registro: nombre de usuario, contraseña dos veces, email, nombre, apellidos, etc... y el botón de enviar el formulario. -->
+              <form id="registro">
+                   <div class="form-group">
+                        <label for="username">Nombre de Usuario:</label>
+                        <input type="text" class="form-control" id="username" name ="username" placeholder="Enter username" required>
                     </div>
-                    <!-- /Principal -->
-
-                    <!-- Secundario -->
-                    <div class="secundario col-lg-3">
-                        <h2>Phasellus blandit</h2>
-                        <p>Praesent sodales imperdiet augue. Mauris lorem felis, semper eu, tincidunt eu, sollicitudin eget, sem. Nulla facilisi. Morbi ut enim ut enim ultricies dapibus.</p>
-                        <p><a href="#">Seguir leyendo...</a></p>
-
-                        <h2>Nullam vel turpis</h2>
-                        <p>Donec commodo, turpis vel venenatis sollicitudin, quam ante convallis justo, sed eleifend justo lectus quis sapien. Ut consequat libero eget est.</p>
-                        <p><a href="#">Seguir leyendo...</a></p>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name ="email" placeholder="Enter email" required>
                     </div>
-                    <!-- /Secundario -->
-                </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd2">Repita Password:</label>
+                        <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="name" name ="name" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Apellidos:</label>
+                        <input type="text" class="form-control" id="lastname" name ="lastname" placeholder="Enter lastname">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
             <!-- /Contenido -->
         </div>
@@ -204,7 +192,7 @@ Intenta transformar el código que se muestra de ejemplo en este ejercicio, para
 
 
 
-3. Crea una nueva página que sea copia de la anterior y llámala registro. Quita el contenido completo central de la página y pon el típico formulario de registro: nombre e usuario, contraseña dos veces, email, nombre apellidos, etc... y el botón de enviar el formulario. 
+
 
 4. Integra un plugin de Jquery de validación de formularios sobre estos dos últimos formularios. Mira a ver si puedes hacer que el plugin de validación use por defecto las clases de error y validación de bootstrap.
 
